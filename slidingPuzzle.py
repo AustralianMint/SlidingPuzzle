@@ -1,8 +1,6 @@
-game_list = [1, 8, 2, 4, 3, 5, 7, 6, 0]
-
-#finding index of empty field
-index_of_0 = game_list.index(0)
-
+#two lists for comparison
+game_list = [1, 2, 3, 4, 5, 6, 7, 8, 0]
+finished_list = [1, 2, 3, 4, 5, 6, 7, 8, 0]
 
 def print_board():
     print(game_list[:3])
@@ -14,13 +12,18 @@ def move_piece(game_list, piece_num, index_of_0):
     game_list[piece_num], game_list[index_of_0] = game_list[index_of_0], game_list[piece_num]
     return(list(game_list))
 
+#combining functions in a while loop
+while game_list != finished_list:
+    print_board()
+    index_of_0 = game_list.index(0)
+    piece_num = int(input("enter number of tile you'd like to move: ")) - 1 
+    move_piece(game_list, piece_num, index_of_0)
+    print(game_list)
+else:
+    print("You have won!")
 
 
-print_board()
 
-piece_num = input("enter number of tile you'd like to move: ")
-
-move_piece(game_list, piece_num, index_of_0)
 
 
 #game board
